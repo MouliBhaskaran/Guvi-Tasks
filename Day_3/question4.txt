@@ -1,0 +1,3 @@
+// 4 - Codekata practice 
+
+I have done code kata problems in zen portal 
