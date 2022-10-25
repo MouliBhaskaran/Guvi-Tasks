@@ -1,0 +1,34 @@
+ <!-- 2. Use the rest countries API URL and display the country flags in the console  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let request = new XMLHttpRequest(); // XHR Object creation
+
+        request.open('GET', 'https://restcountries.com/v3.1/all',true); // opening a new connection
+
+        request.send(); // sending request to the server
+
+        request.onload = function() {
+
+            let data = JSON.parse(request.response);
+            for (let i = 0; i <= data.length; i++){
+                
+
+                console.log(`${data[i].name.common} : ${data[i].flag}`);
+            }
+        
+
+    }
+
+</script>
+</body>
+</html>
+
