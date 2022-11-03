@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 4 steps for XML HTTP Request 
+        
+        // 1. create XHR object by using new keyword 
+        // 2. opening the connection => 3parameters (http method: GET, API URL, true (optional to handle the errors))
+        // 3. sending the request / initiate the connection 
+        // 4. server response (JSON format => convert to array of objects using .parse)
+
+
+        var request = new XMLHttpRequest(); //XHR object 
+        
+        request.open('GET','https://restcountries.com/v3.1/all',true ); // opening a connection
+
+        request.send(); // sending the request to the server 
+
+        request.onload = function() { // unload event => for loading the page
+            var data = JSON.parse(this.response);
+            //console.log(data);
+
+            console.log("Countries with less than 2 lakh Population: ");
+         
+
+            var res = data.filter((element) => {
+                if (element.population < 200000){
+                    console.log(`Country: ${element.name.common}`); 
+                }
+
+            })
+
+            
+
+
+        
+
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>
